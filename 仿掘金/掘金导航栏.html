@@ -1,45 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>掘金导航栏</title>
     <style>
-        /* 根元素的字体大小，影响rem的计算值 */
-        html {
-            font-size: 12px;
-        }
-        .nav {
-            /* 基本属性 */
-            background-color: #fff;
-            border: 1px solid #f1f1f1;
-            height: 5rem;
-            color: #909090;
-        }
-        .nav.pos {
-            /* 定位属性 */
-            position: fixed;
-            top:0;
-            left: 0;
-            right: 0;
-        }
-        .container {
-            /* 基本属性 */
-            max-width: 960px;
-            margin: auto;
-            /* border: 1px solid red; */
+      /* 根元素的字体大小，影响rem的计算值 */
+      html {
+        font-size: 12px;
+      }
+      .nav {
+        /* 基本属性 */
+        background-color: #fff;
+        border: 1px solid #f1f1f1;
+        height: 5rem;
+        color: #909090;
+        /* font-size: 1.3rem; */
+      }
+      .nav.pos {
+        /* 定位属性 */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+      .logo {
+          min-width: 98px;
+          margin-right: 2rem;
+      }
+      .container {
+        /* 基本属性 */
+        width: 960px;
+        margin: auto;
+        /* border: 1px solid red; */
 
-            /* 定位属性 */
-            display:flex;
-            align-items: center;
-            height: 100%;
-        }
+        /* 定位属性 */
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        position: relative;
+        /* width: 100%; */
+      }
+      /* 对掘金logo进行布局 */
+      img {
+        width: auto;
+        height: auto;
+        /* margin-right: 2rem; */
+      }
+
+      /* 导航栏主要部分进行布局 */
+      ul {
+          padding: 0;
+          margin: 0;
+      }
+      .nav ul {
+          list-style: none;
+          display: flex;
+      }
+      /* 主要导航内容的处理 */
+      .nav-item{
+          display: flex;
+          flex-shrink: 0; 
+          align-items: center;
+          justify-content: center;
+      }
+      .nav-item.link-item {
+          padding:0px 1.5rem;
+          height: 5rem;
+      }
+      .show {
+          display: flex;
+      }
+      .show .nav-item {
+         
+          margin : 0;
+          font-size: 1.33rem;
+      }
+      .nav-item a {
+          text-decoration: none;
+          color: #71777c;
+          /* color: #007fff; */
+      }
+      .nav-item a:hover {
+          text-decoration: none;
+          color: #007fff;
+      }
+      /* 搜索框 */
+      
     </style>
-</head>
-    
-<body>
-    <header class="nav pos" >
-        <div class="container"></div>
+  </head>
+
+  <body>
+    <header class="nav pos">
+      <div class="container">
+        <a href="https://juejin.im" class="logo">
+          <!-- 在宽屏显示器上显示 -->
+          <img
+            src="https://s3.pstatp.com/toutiao/xitu_juejin_web/img/logo.a7995ad.svg"
+            alt="juejinlogo1"
+            class="bigger"
+          />
+          <!-- 在窄屏显示器上显示 -->
+          <!-- <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjQ1cHgiIGhlaWdodD0iMzhweCIgdmlld0JveD0iMCAwIDQ1IDM4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPHRpdGxlPkp1ZWppbjwvdGl0bGU+CiAgICA8ZGVzYz5KdWVqaW4uaW08L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iMC4xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iR3JvdXAtMTQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEuMDAwMDAwLCA1LjAwMDAwMCkiIGZpbGw9IiMwMDZDRkYiPgogICAgICAgICAgICA8cGF0aCBkPSJNMjEuMjkzNDMyOCwyLjU4MzEzMDQ5IEwxOC4wMTczOTg0LDAgTDE0LjU5NDYyNCwyLjY5ODg3ODAxIEwxNC40MTcyMDc3LDIuODQxODIzMDQgTDE4LjAxNzM5ODQsNS43MTI0MjQ4MyBMMjEuNjI4NjU3OCwyLjg0MTgyMzA0IEwyMS4yOTM0MzI4LDIuNTgzMTMwNDkgWiBNMzMuNzA3ODI4OSwxMi42MDA2Njc0IEwxOC4wMDc5MTA5LDI0Ljk4MDI3NiBMMi4zMTc0ODA0NCwxMi42MDgyNTc0IEwwLDE0LjQ2OTcwNTIgTDE4LjAwNzkxMDksMjguNjY5MDE2NyBMMzYuMDI1NjI1NiwxNC40NjIxMTUyIEwzMy43MDc4Mjg5LDEyLjYwMDY2NzQgWiBNMTguMDA3OTEwOSwxMy42MDUwNzc2IEw5LjQ2NDQxNTU0LDYuODY4NjM1MDUgTDcuMTQ2NjE4ODUsOC43MzAwODI5IEwxOC4wMDc5MTA5LDE3LjI5NDEzNDUgTDI4Ljg3ODM3NDIsOC43MjI0OTI5IEwyNi41NjA1Nzc1LDYuODYxMDQ1MDUgTDE4LjAwNzkxMDksMTMuNjA1MDc3NiBaIiBpZD0iRmlsbC0xLUNvcHkiPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" alt="juejinlogo2" class="simple"> -->
+        </a>
+        <!-- header主要内容 - 导航栏 -->
+        <nav class="nav" >
+          <ul class="nav-list">
+            <!-- 中间导航栏的主要组件 -->
+            <li class="main-nav list">
+              <ul class="show">
+                <li class="nav-item link-item">
+                  <a href="/"> 首页 </a>
+                </li>
+                <li class="nav-item link-item">
+                  <a href="/">沸点</a>
+                </li>
+                <li class="nav-item link-item">
+                  <a href="">话题</a>
+                </li>
+                <li class="nav-item link-item">
+                  <a href="">小册</a>
+                </li>
+                <li class="nav-item link-item">
+                  <a href="">活动</a>
+                </li>
+                <li class="nav-item link-item">
+                  <a href="">字学</a>
+                </li>
+              </ul>
+            </li>
+            <!-- 右边的其他组件 -->
+            <li class="nav-item search">
+              <!-- 搜索 --- form表单结构 -->
+              <form action="#" class="search-form">
+                <input
+                  class="search-input"
+                  type="search"
+                  maxlength="32"
+                  name="search"
+                  id="k"
+                  placeholder="探索掘金"
+                />
+                <img
+                  src="https://s3.pstatp.com/toutiao/xitu_juejin_web/img/juejin-search-icon.6f8ba1b.svg"
+                  alt="搜索框"
+                  class="search-icon"
+                />
+              </form>
+            </li>
+            <li class="nav-item add">写文章</li>
+            <li class="nav-item notification">消息提示</li>
+            <li class="nav-item menu">个人信息</li>
+          </ul>
+        </nav>
+      </div>
     </header>
-</body>
+  </body>
 </html>
