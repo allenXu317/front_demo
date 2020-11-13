@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>掘金导航栏</title>
+    <style>
+        /* 根元素的字体大小，影响rem的计算值 */
+        html {
+            font-size: 12px;
+        }
+        .nav {
+            /* 基本属性 */
+            background-color: #fff;
+            border: 1px solid #f1f1f1;
+            height: 5rem;
+            color: #909090;
+        }
+        .nav.pos {
+            /* 定位属性 */
+            position: fixed;
+            top:0;
+            left: 0;
+            right: 0;
+        }
+        .container {
+            /* 基本属性 */
+            max-width: 960px;
+            margin: auto;
+            /* border: 1px solid red; */
+
+            /* 定位属性 */
+            display:flex;
+            align-items: center;
+            height: 100%;
+        }
+    </style>
+</head>
+    
+<body>
+    <header class="nav pos" >
+        <div class="container"></div>
+    </header>
+</body>
+</html>
