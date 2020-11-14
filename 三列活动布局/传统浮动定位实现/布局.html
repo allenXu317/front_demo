@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>布局</title>
+    <style>
+        body {
+            margin:0;
+            padding: 0;
+        }
+        .wrap {
+            width: 100%;
+        }
+        .content {
+            overflow: hidden;
+        }
+        .middle {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            background-color: red;
+            float: left;
+        }
+        .left {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            float: left;
+            /* 按照父元素的width进行计算 */
+            margin-left: -100%;
+        }
+        .right {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            float: left;
+            margin-left: -100px;
+        }
+        .content::after {
+            content: "";
+            clear: both;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="content">
+        <div class="middle">
+          <p>middle</p>
+          <p>middle</p>
+          <p>middle</p>
+        </div>
+        <div class="left"></div>
+        <div class="right"></div>
+      </div>
+    </div>
+  </body>
+</html>
