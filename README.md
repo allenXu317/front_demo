@@ -7,4 +7,4 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
 ```
 
-### 1.[仿掘金的导航栏](URL 'https://allenxu317.github.io/front_demo/%E4%BB%BF%E6%8E%98%E9%87%91/%E4%BB%BF%E5%86%99%E6%8E%98%E9%87%91%E5%AF%BC%E8%88%AA%E6%A0%8F/index.html')
+### 1.[仿掘金的导航栏](URL 'https://allenxu317.github.io/?https://github.com/allenXu317/front_demo/blob/main/%E4%BB%BF%E6%8E%98%E9%87%91/%E4%BB%BF%E5%86%99%E6%8E%98%E9%87%91%E5%AF%BC%E8%88%AA%E6%A0%8F/index.html')
