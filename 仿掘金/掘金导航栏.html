@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>掘金导航栏</title>
+    <!-- 引入素材库 -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
     <style>
       /* 根元素的字体大小，影响rem的计算值 */
       html {
@@ -54,30 +57,34 @@
           padding: 0;
           margin: 0;
       }
+      .nav {
+        /* 收缩系数为0 */
+        flex-shrink: 0;
+      }
       .nav ul {
           list-style: none;
           display: flex;
       }
-      /* 主要导航内容的处理 */
       .nav-item{
+        /* 整体样式 */
           display: flex;
-          flex-shrink: 0; 
           align-items: center;
           justify-content: center;
+          padding: 0 1.2rem;
+          margin:0;
+          font-size: 1.33rem;
+          color: #71777c;
       }
+      /* 导航栏中间部分 */
       .nav-item.link-item {
-          padding:0px 1.5rem;
           height: 5rem;
+          padding: 0 1.5rem;
       }
       .show {
           display: flex;
       }
-      .show .nav-item {
-         
-          margin : 0;
-          font-size: 1.33rem;
-      }
       .nav-item a {
+        /* 对a元素处理 */
           text-decoration: none;
           color: #71777c;
           /* color: #007fff; */
@@ -87,7 +94,92 @@
           color: #007fff;
       }
       /* 搜索框 */
-      
+      .nav.search {
+        /* 搜索框整体 */
+        flex:1 1 auto;
+        justify-content: center;
+        cursor:auto;
+      }
+      .search-form {
+        /* 搜索表单  整体*/
+        border:1px solid hsla(0,0%,59.2%,.2);
+        background-color: rgba(227,231,236,.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 2px;
+      }
+      .search-form:active {
+        /* 点击特效 */
+        border:1px solid #007fff ;
+        background-color: #fff;
+      }
+      .search-form .search-input {
+        /* 搜索输入框 */
+        border:none;
+        width: 11rem;
+        padding: .6rem 0 .6rem 1rem;
+        outline: none;
+        font-size: 1.1rem;
+        color: #666;
+        background-color: transparent;
+      }
+      .search-form .search-icon {
+        padding: 0 .5rem;
+        cursor: pointer;
+      }
+
+      /* 写文章的按钮 */
+      .add-group {
+        display: flex;
+        align-items: center;
+        height: 2.667rem;
+        cursor: pointer;
+      }
+      .add-button {
+        padding: 0 .9rem;
+        font-size: 1.167rem;
+        color: #fff;
+        background-color: #007fff;
+        border-radius: 3px;
+        /* 未点击按钮时的边框 */
+        border:none;
+        /* 点击按钮时的边框 */
+        outline: none;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        cursor: pointer;
+        /* 百分比是相对于父元素来说的 */
+        height: 100%;
+      }
+      .add-button:hover {
+        background-color: #0371df;
+        color: #fff;
+      }
+      .more {
+        color: #fff;
+        background-color: #007fff;
+        border-radius: 3px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        height: 100%;
+      }
+      .more {
+        /* 使箭头居中 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* 消息提醒 */
+
+
+      /* 个人信息 */
+      .avater {
+
+      }
+
+
     </style>
   </head>
 
@@ -149,9 +241,31 @@
                 />
               </form>
             </li>
-            <li class="nav-item add">写文章</li>
-            <li class="nav-item notification">消息提示</li>
-            <li class="nav-item menu">个人信息</li>
+            <li class="nav-item add">
+              <div class="add-group">
+                <button class="add-button">写文章</button>
+                <div class="more">
+                  <span class="material-icons search-icon">
+                    arrow_drop_down
+                    </span>
+                  <!-- <i class="arrow"></i> -->
+                </div>
+              </div>
+            </li>
+            <li class="nav-item notification">
+              <a href="#" class="app-link">
+                <span class="material-icons">
+                  notifications
+                  </span>
+              </a>
+            </li>
+            <li class="nav-item menu">
+              <div class="avater">
+                <a href="#"><span class="material-icons">
+                  account_circle
+                  </span></a>
+              </div>
+            </li>
           </ul>
         </nav>
       </div>
