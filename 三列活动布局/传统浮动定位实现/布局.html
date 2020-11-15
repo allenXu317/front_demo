@@ -3,59 +3,84 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>布局</title>
+    <title>Document</title>
     <style>
-        body {
-            margin:0;
-            padding: 0;
-        }
-        .wrap {
-            width: 100%;
-        }
-        .content {
-            overflow: hidden;
-        }
-        .middle {
-            position: relative;
-            width: 100%;
-            height: 100px;
-            background-color: red;
-            float: left;
-        }
-        .left {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            background-color: blue;
-            float: left;
-            /* 按照父元素的width进行计算 */
-            margin-left: -100%;
-        }
-        .right {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            background-color: green;
-            float: left;
-            margin-left: -100px;
-        }
-        .content::after {
-            content: "";
-            clear: both;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .main {
+        /* overflow: hidden; */
+        /* width: 100%; */
+        height: 100px;
+        /* 设置左右内边距 */
+        /* middle继承的是父元素的内容区的宽度，让 left 和 right 填充左右，middle只在内容区中展示 */
+        padding: 0 50px 0 50px;
+      }
+      .main::after {
+          content: "";
+          clear: both;
+      }
+
+      .middle,
+      .left,
+      .right {
+        float: left;
+      }
+
+      .middle {
+        position: relative;
+        width: 100%;
+        height: 100px;
+      }
+
+      .left {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        /* 根据浮动原理，当浮动的元素遇到浏览器边界或另一个浮动元素时就会暂时停止漂浮（但是脱离了文档流） */
+        /* 对于left块来说，left的左边紧挨着middle的右边，要想让left移到左边去 */
+        /* 首先设置一个 mrigin-left:-100%;   margin-left 的百分比是相对父元素而言的，而middle 的 width也被设置成了100%,所以和父级元素同宽 */
+        /* 那么这样设置后（由上文可知，left 的左边 和 middle 的右边是紧挨着的），left块会以左边为基准，长度为middle块的长度，向左移动，因为浮动是脱离文档流的，所以left会向上走，覆盖到midlle上面 */
+        /* 此时 left 的左边 和 middle 的左边是对齐的（left覆盖在middle上面） */
+        margin-left: -100%;
+        /* 再通过相对定位，将left块往左拉它自己的宽度，使left的右边界紧挨 middle的左边界，并且可以挤压middle */
+        left: -50px;
+      }
+
+      .right {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        /* right块也是同理，因为之前的left块被移走了，所以此时right块的左边紧挨着middle块的右边 */
+        /* 先利用margin-left -right块的宽度，将right块拉回到middle上，并使其右边与middle块的右边平齐 */
+        /* 再利用定位属性将right块向右拉，使right块在middle的右边 */
+        right:-50px ;
+        margin-left: -50px;
+      }
+      /* 将两个块放好后，因为浮动块之间是会产生挤压的，所以左右固定宽度的块不会变化，中间相对宽度的middle会发生变化 */
+
+      /* 设置样式方便查看效果 */
+      .middle {
+        background-color: red;
+      }
+      .left {
+        background-color: gray;
+      }
+      .right {
+        background-color: green;
+      }
     </style>
   </head>
   <body>
-    <div class="wrap">
-      <div class="content">
-        <div class="middle">
-          <p>middle</p>
-          <p>middle</p>
-          <p>middle</p>
-        </div>
-        <div class="left"></div>
-        <div class="right"></div>
+    <div class="main">
+      <div class="middle">middle
+          <p>
+              ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+          </p>
       </div>
+      <div class="left">left</div>
+      <div class="right">right</div>
     </div>
   </body>
 </html>
