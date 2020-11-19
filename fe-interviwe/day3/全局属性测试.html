@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全局变量测试</title>
+    <style>
+        .accessKey {
+            border: 1px solid red;
+        }
+        .attr {
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <main class="content">
+        <head class="info">
+            <h2> 什么是全局变量？ </h2>
+            <p>
+                指的是所有的HTML标签上都能使用的属性
+            </p>
+        </head>
+        <div class="attr">
+            全局属性：accessKey 按1快速访问<input type="text" accesskey="1"> 
+        </div>
+        <div class="attr">
+            <p autocapitalize="sentences">autocapitalize全局属性测试 asd asdad asd asd </p>
+        </div>
+        <div class="attr">
+            <p contenteditable="true">contenteditable 我可以被编辑</p>
+        </div>
+        <div class="attr">
+            <p>data-* 属性</p>
+            <p data-id="9527" data-name="data-myName">data-id="9527" data-name="data-myName"</p>
+        </div>
+        <div class="attr">
+            <p>dir : 可以改变文档流的文字方向</p>
+            <p dir="ltr">我是ltr，从左向右</p>
+            <p dir="rtl">我是rtr,从右向左</p>
+        </div>
+        <div class="attr">
+            <p>draggable 属性：</p>
+            <p draggable="true">我可以被拖动</p>
+            <p draggable="false">我不能被拖动</p>
+        </div>
+        <div class="attr">
+            <p>dropzone 属性：</p>
+            <p>dropzone也是一个和Drag & Drop API有关的属性，可以用来指示哪种类型的内容可以拖放到当前元素上。</p>
+            <p>目前没有任何浏览器支持这一个属性，准确说Chrome曾经支持过，后来放弃了</p>
+        </div>
+        <div class="attr">
+            <p>part属性:</p>
+            <p>part属性是跟着Shadow DOM开发走的，Shadow DOM树中的元素通常我们是无法在外部使用CSS选择器匹配的。</p>
+            <p>  但是这样的需求又是存在的，怎么办呢，就设计了一个part属性，可以在外部借助CSS ::part伪元素进行匹配。</p>
+        </div>
+        <div class="attr">
+            <p>exportparts属性:</p>
+            <p></p>
+        </div>
+    </main>
+    
+</body>
+</html>
