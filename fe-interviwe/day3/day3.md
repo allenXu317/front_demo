@@ -6,7 +6,7 @@
 ## 2.[css] 在页面上隐藏元素的方法有哪些？
 
 
-## 3.(js) 
+## 3.[js] 去除字符串中最后一个指定的字符
 ```javascript
 function findLast(str,target) {
     let loc = 0;
