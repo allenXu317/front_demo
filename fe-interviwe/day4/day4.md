@@ -98,5 +98,5 @@ console.log(res);
 ```
 ***<br>
 #### 好的博客:
-1.[离线web应用 HTML5的离线储存怎么使用，解释工作原理](https://www.jianshu.com/p/aaa8971cd6c8)
+1.[离线web应用 HTML5的离线储存怎么使用，解释工作原理](https://www.jianshu.com/p/aaa8971cd6c8)<br>
 2.[HTML5的文件离线存储怎么使用,工作原理?](https://juejin.cn/post/6844903902727372807)
